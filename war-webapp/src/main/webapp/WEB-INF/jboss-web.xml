@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- JBoss-Specific WebApp Descriptor -->
+<jboss-web>
+	<!-- URL to access the web module -->
+	<context-root>war-webapp</context-root>
+	
+	<!-- Realm that will be used -->
+	<!-- Has to match element from e.g. standalone.sh given with exact XPath: 
+	/server/profile/subsystem[@xmlns="urn:jboss:domain:security:1.2"]/security-domains/security-domain[@name="someRealm"] -->
+	<!-- An example of content from above element - 
+		DataBase Authentication [from JNDI Data Source] with SHA-256 and Base64 encoding of passwords
+		 
+		<authentication>
+			<login-module code="org.jboss.security.auth.spi.DatabaseServerLoginModule" flag="required">
+				<module-option name="dsJndiName" value="java:jboss/datasources/elearningDS"/>
+				<module-option name="principalsQuery" value="select PASSWORD from USERS where NICK=?"/>
+				<module-option name="rolesQuery" value="select ROLE, 'Roles' from USERS where NICK=?"/>
+				<module-option name="hashAlgorithm" value="SHA-256"/>
+				<module-option name="hashEncoding" value="base64"/>
+				<module-option name="unauthenticatedIdentity" value="guest"/>
+			</login-module>
+		</authentication>
+	-->
+	<security-domain>java:/jaas/someRealm</security-domain>
+	
+</jboss-web>

@@ -1,0 +1,1 @@
+-- INSERT INTO tableName(columnName1, columnName2, ...) VALUES (valueOfColumnName1, valueOfColumnName2, ...)
